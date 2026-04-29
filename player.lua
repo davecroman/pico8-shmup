@@ -1,9 +1,9 @@
 function initPlayer()
-    pX = 64
-    pY = 80
+    pX = 60
+    pY = 90
     speed = 2
     frameCount = 1
-    currSpr = 1
+    currSpr = 0
     fireCd = 0
     fireRate = 5
     fireSpeed = 6

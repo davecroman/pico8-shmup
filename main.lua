@@ -1,23 +1,39 @@
 function _init()
-    cls(0)
+    mode = "menu"
+    initMenu()
+    initStarfield()
     initProjectiles()
     initPlayer()
     initExplosions()
     initUi()
 end
 
+
 function _update()
-    updateProjectiles()
-    updatePlayer()
-    updateExplosions()
-    updateUi()
+    if mode == "menu" then
+        updateStarfield()
+        updateMenu()
+    elseif mode == "game" then
+        updateStarfield()
+        updateProjectiles()
+        updatePlayer()
+        updateExplosions()
+        updateUi()
+    end
 end
 
 function _draw()
     cls()
-    drawProjectiles()
-    drawPlayer()
-    drawExplosions()
-    drawUi()
-    -- rect(0, 0, 128-1, 128-1, 13)
+    if mode == "menu" then
+        drawStarfield()
+        drawMenu()
+    elseif mode == "game" then
+        drawStarfield()
+        drawProjectiles()
+        drawPlayer()
+        drawExplosions()
+        drawUi()
+        print(stat(1)*100,103,10,5)
+    end
+    
 end

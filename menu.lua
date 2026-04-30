@@ -1,13 +1,9 @@
 function initMenu()
-   blinkRate = 20
-   blinkTimer = 0
    btnPressed = false
    minusY = 0
 end
 
 function updateMenu()
-   blinkTimer = (blinkTimer + 1) % blinkRate
-
    if(btn(4)) then
        btnPressed = true
    end
@@ -34,9 +30,7 @@ function drawMenu()
         spr(0, pX, targetPY)
         spr(7 + boosterFrame, pX, targetPY + 6)
     else
-        if blinkTimer < blinkRate / 2 then
-            print("PRESS ❎ TO START", 28, 70, 8)
-        end
+        blink_text("press ❎ to start", 28, 70, 0.5, 8)
     end
     
 end

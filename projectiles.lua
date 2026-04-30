@@ -20,6 +20,5 @@ function drawProjectiles()
 end
 
 function addProjectile(x, y, dx, dy)
-    -- add projectile
     add(projs, {x = x, y = y, dx = dx, dy = dy})
 end

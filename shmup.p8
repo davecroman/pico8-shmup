@@ -1,6 +1,8 @@
 pico-8 cartridge // http://www.pico-8.com
 version 43
 __lua__
+-- utils
+#include utils.lua
 
 -- game files
 #include starfield.lua

@@ -1,31 +1,32 @@
 function initPlayer()
-    pX = 60
-    pY = 90
-    speed = 2
+    p1 = {
+        x=60, y=90,
+        vel=2,
+        currSpr=0,
+        fireCd=0,
+        fireRate=5,
+        fireSpeed=6,
+        boosterFrame=0
+    }
     frameCount = 1
-    currSpr = 0
-    fireCd = 0
-    fireRate = 5
-    fireSpeed = 6
     flash = 0
-    boosterFrame = 0
 end
 
 function updatePlayer()
-    if btn(0) then pX -= speed end
-    if btn(1) then pX += speed end
-    if btn(2) then pY -= speed end
-    if btn(3) then pY += speed end
-    
-    pX = min(max(pX, 0), 128 - 8)
-    pY = min(max(pY, 0), 128 - 8)
+    if btn(0) then p1.x -= p1.vel end
+    if btn(1) then p1.x += p1.vel end
+    if btn(2) then p1.y -= p1.vel end
+    if btn(3) then p1.y += p1.vel end
+
+    p1.x = min(max(p1.x, 0), 128 - 8)
+    p1.y = min(max(p1.y, 0), 128 - 8)
 
     -- sprite
-    currSpr = 0
-    if btn(0) then 
-        currSpr = 1
+    p1.currSpr = 0
+    if btn(0) then
+        p1.currSpr = 1
     elseif btn(1) then
-        currSpr = 2
+        p1.currSpr = 2
     end
 
     -- animate flash
@@ -34,27 +35,27 @@ function updatePlayer()
     end
 
     -- animate booster
-    boosterFrame = (boosterFrame + 1) % 2
+    p1.boosterFrame = (p1.boosterFrame + 1) % 2
 
     --  FIRING CHECKS
-    if btn(4) and fireCd == 0 then
-        addProjectile(pX, pY -4, 0, -1*fireSpeed)
+    if btn(4) and p1.fireCd == 0 then
+        addProjectile(p1.x, p1.y - 4, 0, -1 * p1.fireSpeed)
         sfx(0)
         flash = 6
-        fireCd = fireRate
+        p1.fireCd = p1.fireRate
     end
 
-    fireCd = max(0, fireCd - 1)
+    p1.fireCd = max(0, p1.fireCd - 1)
 end
 
 function drawPlayer()
-    spr(currSpr, pX, pY)
+    spr(p1.currSpr, p1.x, p1.y)
 
     -- flash
     if(flash > 0) then
-        circfill(pX + 4, pY - 2, flash, 7)
+        circfill(p1.x + 4, p1.y - 2, flash, 7)
     end
 
-    -- boster
-    spr(7 + boosterFrame, pX, pY + 6)
+    -- booster
+    spr(7 + p1.boosterFrame, p1.x, p1.y + 6)
 end

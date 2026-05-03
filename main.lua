@@ -1,5 +1,5 @@
 function _init()
-    mode = "menu"
+    mode = "game"
     initMenu()
     initStarfield()
     initProjectiles()

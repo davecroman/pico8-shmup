@@ -6,6 +6,7 @@ function _init()
     initPlayer()
     initExplosions()
     initUi()
+    initEnemies()
 end
 
 
@@ -17,6 +18,7 @@ function _update()
         updateStarfield()
         updateProjectiles()
         updatePlayer()
+        updateEnemies()
         updateExplosions()
         updateUi()
     end
@@ -31,6 +33,7 @@ function _draw()
         drawStarfield()
         drawProjectiles()
         drawPlayer()
+        drawEnemies()
         drawExplosions()
         drawUi()
         print(stat(1)*100,103,10,5)

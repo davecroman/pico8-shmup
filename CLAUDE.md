@@ -192,7 +192,7 @@ Use numeric literals directly. Do not import colour palettes from external libra
 - **Test logic mentally against the constraints** — no filesystem, no networking, no external libraries.
 - **Keep functions short.** PICO-8 games are typically one flat file; deeply nested abstractions are expensive in tokens and harder to debug.
 - **Use comments sparingly** — comments cost tokens.
-- **Never introduce `require()` or multi-file imports.**
+- **Never introduce `require()`.** Use PICO-8's `#include` directive in `shmup.p8` to split code across multiple `.lua` files — this is the accepted pattern for this project.
 - **Ask before adding new SFX or sprite indices** — these are shared resources and may conflict with existing assets.
 ---
  
@@ -200,14 +200,14 @@ Use numeric literals directly. Do not import colour palettes from external libra
  
 - Do not use standard Lua libraries (`io`, `os`, `math.huge` is fine, but avoid others).
 - Do not write unit test harnesses — PICO-8 has no test runner.
-- Do not produce multiple files expecting a build step.
+- Do not produce multiple `.p8` files or use any external build step. Multiple `.lua` files included via `#include` in `shmup.p8` are fine.
 - Do not exceed the 128×128 draw surface.
 - Do not add dependencies or package managers.
 ---
  
 ## Submitting Changes
  
-1. Edit `mygame.p8` directly.
+1. Edit `shmup.p8` (and/or the `#include`d `.lua` files) directly.
 2. Verify the token count estimate stays under 32,768.
 3. Describe what was changed and why in your PR/commit message.
 4. Note any sprite, SFX, or map indices added or changed.

@@ -30,9 +30,10 @@ PICO-8 is a fantasy console with strict hardware constraints. All code runs insi
 ## Project Structure
  
 ```
-mygame.p8          # single cartridge file — source of truth
+shmup.p8           # single cartridge file — source of truth
 README.md          # human-readable notes
-AGENTS.md          # this file
+CLAUDE.md          # this file
+SKILLS.md          # practical techniques: sprite editing, GFX format, design patterns
 assets/            # exported spritesheets, map CSVs (for reference only)
 ```
  

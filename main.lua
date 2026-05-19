@@ -26,6 +26,7 @@ function checkCollisions()
                     for i=1,5 do
                         addExplosion(e.x + flr(rnd(20)) - 10, e.y + flr(rnd(20)) - 10)
                     end
+                    break
                 end
             end
         end 

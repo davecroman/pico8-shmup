@@ -9,7 +9,6 @@ function addScorePopup(x, y)
 end
 
 function updateUi()
-    health = max(0, 3)
     for p in all(score_popups) do
         p.y -= 0.25
         p.life -= 1

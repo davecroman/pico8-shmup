@@ -22,12 +22,12 @@ function updateMenu()
    end
 end
 
-function drawMenu(p1)
+function drawMenu()
     local titleY = 50 - minusY
     print("burned out", 40, titleY, 7)
     if btnPressed then
         local targetPY = max(160 - minusY, p1.y)
-        spr(0, p1.x, targetPY)
+        spr(0, p1.x, targetPY) 
         spr(7 + p1.boosterFrame, p1.x, targetPY + 6)
     else
         blink_text("press ❎ to start", 28, 70, 0.5, 8)

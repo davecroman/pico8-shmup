@@ -1,5 +1,5 @@
 function _init()
-    mode = "game"
+    mode = "menu"
     initMenu()
     initStarfield()
     initProjectiles()
@@ -7,6 +7,29 @@ function _init()
     initExplosions()
     initUi()
     initEnemies()
+end
+
+function checkCollisions()
+    for e in all(enemies) do
+        for p in all(projs) do
+            if(isColliding(e, p)) then
+
+                addExplosion(e.x + flr(rnd(11)) - 5, e.y + flr(rnd(11)) - 5)
+                del(projs, p)
+                e.hp -= p1.pow
+                e.hit_t = 6
+                if e.hp <= 0 then
+                    score += 100
+                    addScorePopup(e.x, e.y)
+                    del(enemies, e)
+                    sfx(1)
+                    for i=1,5 do
+                        addExplosion(e.x + flr(rnd(20)) - 10, e.y + flr(rnd(20)) - 10)
+                    end
+                end
+            end
+        end 
+    end
 end
 
 
@@ -20,6 +43,7 @@ function _update()
         updatePlayer()
         updateEnemies()
         updateExplosions()
+        checkCollisions()
         updateUi()
     end
 end

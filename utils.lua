@@ -1,3 +1,8 @@
+function isColliding(a, b)
+  return a.x < b.x+b.w and a.x+a.w > b.x
+     and a.y < b.y+b.h and a.y+a.h > b.y
+end
+
 -- Function to draw blinking text
 -- text: the string to display
 -- x, y: position on screen
@@ -9,3 +14,4 @@ function blink_text(text, x, y, period, clr)
     print(text, x, y, clr)
   end
 end
+

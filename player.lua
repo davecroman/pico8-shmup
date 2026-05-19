@@ -4,9 +4,10 @@ function initPlayer()
         vel=2,
         currSpr=0,
         fireCd=0,
-        fireRate=5,
+        fireRate=7,
         fireSpeed=6,
-        boosterFrame=0
+        boosterFrame=0,
+        pow=10
     }
     frameCount = 1
     flash = 0
